@@ -26,6 +26,7 @@ const config: Config = {
           200: "#000000",
         },
       },
+      
     },
   },
   plugins: [],

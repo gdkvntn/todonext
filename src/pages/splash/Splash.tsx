@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Logo from "../../../public/svg/logo.svg";
-import Pana from "../../../public/img/pana.png";
-import { Button } from "@/components/Button/Button";
+import Logo from "../../image/svg/LogoIcon.svg";
+import Pana from "../../image/img/pana.png";
+import { Button } from "@/components";
 
 export default function Splash(): JSX.Element {
   return (
