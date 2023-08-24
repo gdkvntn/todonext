@@ -1,6 +1,10 @@
 import type { AppProps } from "next/app";
 import "../styles/globals.css";
 import Head from "next/head";
+import { QueryClient, QueryClientProvider, useQuery } from "react-query";
+import Layout from "@/layout/Layout";
+
+const queryClient = new QueryClient();
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -13,7 +17,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           rel="stylesheet"
         />
       </Head>
-      <Component {...pageProps} />
+      <QueryClientProvider client={queryClient}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </QueryClientProvider>
     </>
   );
 }

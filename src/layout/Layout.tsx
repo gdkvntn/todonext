@@ -1,6 +1,6 @@
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div>
+    <div className=" max-w-3xl m-auto">
       <div>{children}</div>
     </div>
   );
