@@ -12,6 +12,6 @@ export default function Home() {
   if (!data?.data.user) {
     return <Splash />;
   } else {
-    return <HomeScreen data={data.data.user} />;
+    return <HomeScreen user={data.data.user} />;
   }
 }

@@ -8,7 +8,6 @@ import { Button, Input } from "@/components";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Loader from "@/components/Loader/Loader";
-import { useQuery } from "react-query";
 import { supabase } from "@/supabaseClient";
 
 export default function CreateAcc(): JSX.Element {
@@ -16,14 +15,12 @@ export default function CreateAcc(): JSX.Element {
   const [mail, setMail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [passView, setPassView] = useState<boolean>(false);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
 
   const checkIn = async (event: React.SyntheticEvent) => {
     event.preventDefault();
-
     setLoading(true);
-    debugger;
     const { error } = await supabase.auth.signUp({
       email: mail,
       password: password,
@@ -33,25 +30,18 @@ export default function CreateAcc(): JSX.Element {
         },
       },
     });
-
+    await setLoading(false);
     if (error) {
       alert(error.message);
     } else {
-      router.push("/home");
+      router.push("/");
     }
-    setLoading(false);
   };
 
   const handleOAuth = async () => {
-    // const { data, error } = await supabase.auth.signInWithOAuth({
-    //   provider: "google",
-    //   options: {
-    //     queryParams: {
-    //       access_type: "offline",
-    //       prompt: "consent",
-    //     },
-    //   },
-    // });
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+    });
   };
 
   return (

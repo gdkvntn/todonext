@@ -21,7 +21,7 @@ export function Aside() {
           <span>Chat</span>
         </li>
         <li className="flex flex-col items-center  justify-center gap-1 w-14 h-14 bg-yellow transition ease-in-out delay-1 active:-translate-y-1 active:scale-110 active:opacity-70 duration-300">
-          <Link href="/home/CreateTask">
+          <Link href="/create-task">
             <AddIcon />
           </Link>
         </li>

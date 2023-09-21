@@ -3,12 +3,16 @@ import "react-circular-progressbar/dist/styles.css";
 import { OngoingCardProps } from "./OngoingCard.props";
 import { useRouter } from "next/navigation";
 
-export default function OngoingCard({ title, date }: OngoingCardProps) {
+export default function OngoingCard({ title, date, id }: OngoingCardProps) {
   const router = useRouter();
+
+  const openTask = () => {
+    router.push(`/tasks-details/${id}`);
+  };
 
   return (
     <div
-      onClick={() => router.push("/home/task-details")}
+      onClick={openTask}
       className=" p-3 bg-gray-300 transition ease-in-out delay-1 active:-translate-y-1 active:scale-110 active:opacity-70 duration-300 mt-4"
     >
       <h3 className=" font-mono text-2xl leading-6">{title}</h3>

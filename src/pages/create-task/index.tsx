@@ -20,33 +20,30 @@ export default function CreateTask(): JSX.Element {
 
   const addTodo = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    if (title.length < 3) {
-      alert("The title cannot be less than 3 characters");
-    }
-    if (text.length < 4) {
-      alert("The details cannot be less than 4 characters");
-    }
-    if (isNaN(Date.parse(date))) {
-      alert("Enter the correct date");
-    }
-    if (time === "") {
-      alert("Enter the correct time");
-    }
-
-    if (data !== undefined) {
-      let { error } = await supabase
-        .from("todos")
-        .insert({
-          title: title,
-          text: text,
-          user_id: data.data.user?.id,
-          time: time,
-          date: date,
-        })
-        .single();
-      router.back();
-    } else {
-      alert("Something went wrong");
+    try {
+      if (title.length < 3) {
+        throw "The title cannot be less than 3 characters";
+      } else if (text.length < 4) {
+        throw "The details cannot be less than 4 characters";
+      } else if (isNaN(Date.parse(date))) {
+        throw "Enter the correct date";
+      } else if (time === "") {
+        throw "Enter the correct time";
+      } else if (data !== undefined) {
+        await supabase
+          .from("todos")
+          .insert({
+            title: title,
+            text: text,
+            user_id: data.data.user?.id,
+            time: time,
+            date: date,
+          })
+          .single();
+        router.back();
+      }
+    } catch (error) {
+      alert(error);
     }
   };
 
