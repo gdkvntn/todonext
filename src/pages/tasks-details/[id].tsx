@@ -10,7 +10,7 @@ import { supabase } from "@/supabaseClient";
 import Loader from "@/components/Loader/Loader";
 import { useState } from "react";
 import { ParsedUrlQuery } from "querystring";
-import { Modal } from "./modal";
+import { Modal } from "@/components/Modal/Modal";
 
 export default function TaskDetails() {
   const [openModal, setOpenModal] = useState<boolean>(false);

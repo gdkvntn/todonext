@@ -1,12 +1,16 @@
 import Image from "next/image";
-import { UserProps } from "./HomeScreen.props";
+import { User } from "@supabase/supabase-js";
 import { Search } from "@/components/Search/Search";
-import { HomeSwiper } from "./Swiper/HomeSwiper";
-import OngoingCard from "./OngoingCard/OngoingCard";
+import { HomeSwiper } from "../Swiper/HomeSwiper";
+import OngoingCard from "@/components/OngoingCard/OngoingCard";
 import { Aside } from "@/layout/Aside";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/supabaseClient";
 import { useQuery } from "react-query";
+
+export interface UserProps {
+  user: User;
+}
 
 export default function HomeScreen({ user }: UserProps) {
   const { user_metadata } = user;
