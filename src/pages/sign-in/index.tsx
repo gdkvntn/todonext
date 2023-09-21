@@ -32,7 +32,11 @@ export default function SignIn(): JSX.Element {
       router.push("/");
     }
   };
-
+  const handleOAuth = async () => {
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+    });
+  };
   return (
     <>
       {loading ? <Loader /> : null}
@@ -60,18 +64,19 @@ export default function SignIn(): JSX.Element {
               type={passView ? "text" : "password"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-            />
-            {passView ? (
-              <EyeIcon
-                className="absolute right-4 bottom-6"
-                onClick={() => setPassView(!passView)}
-              />
-            ) : (
-              <EyeslashIcon
-                className="absolute right-4 bottom-6"
-                onClick={() => setPassView(!passView)}
-              />
-            )}
+            >
+              {passView ? (
+                <EyeIcon
+                  className="absolute right-4 bottom-1/2 translate-y-1/2"
+                  onClick={() => setPassView(!passView)}
+                />
+              ) : (
+                <EyeslashIcon
+                  className="absolute right-4 bottom-1/2 translate-y-1/2"
+                  onClick={() => setPassView(!passView)}
+                />
+              )}
+            </Input>
           </div>
           <p className=" text-gray-100 text-sm text-right mt-3">
             Forgot Password?
@@ -90,6 +95,7 @@ export default function SignIn(): JSX.Element {
         <Button
           className="flex items-center justify-center mt-9"
           appearance="ghost"
+          onClick={handleOAuth}
         >
           <GoogleIcon className=" inline-block" />
           <span className=" ml-3">Google</span>

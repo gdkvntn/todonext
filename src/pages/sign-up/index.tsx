@@ -39,7 +39,7 @@ export default function CreateAcc(): JSX.Element {
   };
 
   const handleOAuth = async () => {
-    const { data, error } = await supabase.auth.signInWithOAuth({
+    await supabase.auth.signInWithOAuth({
       provider: "google",
     });
   };
@@ -77,21 +77,22 @@ export default function CreateAcc(): JSX.Element {
             type={passView ? "text" : "password"}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-          />
-          {passView ? (
-            <EyeIcon
-              className="absolute right-4 bottom-6"
-              onClick={() => setPassView(!passView)}
-            />
-          ) : (
-            <EyeslashIcon
-              className="absolute right-4 bottom-6"
-              onClick={() => setPassView(!passView)}
-            />
-          )}
+          >
+            {passView ? (
+              <EyeIcon
+                className="absolute right-4 bottom-1/2 translate-y-1/2"
+                onClick={() => setPassView(!passView)}
+              />
+            ) : (
+              <EyeslashIcon
+                className="absolute right-4 bottom-1/2 translate-y-1/2"
+                onClick={() => setPassView(!passView)}
+              />
+            )}
+          </Input>
         </div>
 
-        <div className="flex gap-2 mt-4">
+        <div className="flex gap-2 mt-4 items-center">
           <input
             type="checkbox"
             id="some_id"

@@ -8,6 +8,7 @@ export const Input = ({
   icon,
   placeholder,
   className,
+  children,
   ...props
 }: InputProps): JSX.Element => {
   return (
@@ -23,7 +24,7 @@ export const Input = ({
             <CreateUserIcon />
           )}
         </div>
-
+        {children}
         <input
           className=" bg-gray-300 py-4 w-full pl-16 text-white text-lg"
           placeholder={placeholder}
