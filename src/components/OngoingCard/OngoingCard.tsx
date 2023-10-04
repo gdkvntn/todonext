@@ -3,7 +3,12 @@ import "react-circular-progressbar/dist/styles.css";
 import { OngoingCardProps } from "./OngoingCard.props";
 import { useRouter } from "next/navigation";
 
-export default function OngoingCard({ title, date, id }: OngoingCardProps) {
+export default function OngoingCard({
+  title,
+  date,
+  id,
+  progress,
+}: OngoingCardProps) {
   const router = useRouter();
 
   const openTask = () => {
@@ -23,8 +28,8 @@ export default function OngoingCard({ title, date, id }: OngoingCardProps) {
         <div className=" w-14 h-14">
           <CircularProgressbar
             className="text-white"
-            value={66}
-            text="66%"
+            value={+progress}
+            text={`${progress}%`}
             strokeWidth={4}
             styles={buildStyles({
               textColor: "white",

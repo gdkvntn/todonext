@@ -19,14 +19,17 @@ export default function HomeScreen({ user }: UserProps) {
   const img = false;
 
   const tasks = useQuery("tasks", async () => {
-    return await supabase.from("todos").select("*").order("user_id");
+    return await supabase
+      .from("todos")
+      .select("*")
+      .order("id", { ascending: true });
   });
 
   const back = async () => {
     await supabase.auth.signOut();
     router.refresh();
   };
-  console.log(user);
+  console.log(tasks);
   return (
     <>
       <div>
@@ -72,6 +75,7 @@ export default function HomeScreen({ user }: UserProps) {
                       title={task.title}
                       date={task.date}
                       id={task.id}
+                      progress={task.progress}
                     />
                   );
                 })}
