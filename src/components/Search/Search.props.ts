@@ -4,5 +4,6 @@ export interface SearchProps
   extends DetailedHTMLProps<
     InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
-  > {  
+  > {
+  SearchTasks: (text: string) => void;
 }

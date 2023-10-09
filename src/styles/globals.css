@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.hover-scale {
+  position: relative;
+  transition: 0.2s ease-in-out;
+}
+.hover-scale:hover {
+  cursor: pointer;
+  transform: translateY(-0.5rem) scale(1.05);
+  z-index: 9;
+}
+.hover {
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+.hover:hover {
+  background-color: #fed36a;
+}

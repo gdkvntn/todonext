@@ -1,16 +1,12 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
-    
-    
     extend: {
       fontFamily: {
-        'sans': ['Inter','sans-serif'],
-        'cabin':['Cabin Condensed',' sans-serif'],
+        sans: ["Inter", "sans-serif"],
+        cabin: ["Cabin Condensed", " sans-serif"],
       },
       colors: {
         background: "#212832",
@@ -27,17 +23,15 @@ const config: Config = {
           200: "#000000",
         },
       },
-      animation:{
-        'spin-slow' : 'rotate 2s ease-in-out infinite'
+      animation: {
+        "spin-slow": "rotate 2s ease-in-out infinite",
       },
-      keyframes:{
-        rotate:{
-          '0%, 100%': { transform: 'rotate(-30deg)' },
-          '50%': { transform: 'rotate(30deg)' },
-        }
-      }
-      
-      
+      keyframes: {
+        rotate: {
+          "0%, 100%": { transform: "rotate(-30deg)" },
+          "50%": { transform: "rotate(30deg)" },
+        },
+      },
     },
   },
   plugins: [],

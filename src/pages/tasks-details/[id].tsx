@@ -207,9 +207,9 @@ const Card = ({
   return (
     <>
       {loading ? <Loader /> : null}
-      <li className=" flex items-center justify-between p-3 bg-gray-300 ">
-        <p className=" text-lg">{tasks}</p>
-        <div className="flex justify-center items-center bg-yellow w-10 h-10">
+      <li className=" flex items-center gap-4 justify-between p-3 bg-gray-300 ">
+        <p className=" text-lg break-all ">{tasks}</p>
+        <div className="flex justify-center items-center bg-yellow min-w-[40px] h-10">
           <input
             type="checkbox"
             id="some_id"

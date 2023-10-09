@@ -18,7 +18,7 @@ export default function OngoingCard({
   return (
     <div
       onClick={openTask}
-      className=" p-3 bg-gray-300 transition ease-in-out delay-1 active:-translate-y-1 active:scale-110 active:opacity-70 duration-300 mt-4"
+      className=" p-3 bg-gray-300 duration-300 mt-4 hover-scale"
     >
       <h3 className=" font-mono text-2xl leading-6">{title}</h3>
       <div className="flex justify-between items-end">
