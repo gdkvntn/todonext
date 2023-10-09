@@ -9,10 +9,6 @@ export const Search = ({
 }: SearchProps): JSX.Element => {
   const icon = useRef<HTMLDivElement>(null);
 
-  const a = (e) => {
-    SearchTasks(e.target.value);
-  };
-
   return (
     <div className={`relative ${className}`}>
       <div
@@ -25,7 +21,7 @@ export const Search = ({
       <input
         className=" bg-gray-300 py-4 w-full pl-16 text-white text-lg placeholder:text-gray-200 focus:outline-none focus:border-yellow border"
         placeholder="Seach tasks"
-        onChange={(e) => a(e)}
+        onChange={(e) => SearchTasks(e.target.value)}
         onFocus={() =>
           icon.current ? (icon.current.style.stroke = "#FED36A") : null
         }
